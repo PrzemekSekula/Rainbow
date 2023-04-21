@@ -8,8 +8,8 @@ Originally, I tried to implement everything myself, but when I started implement
 
 ### Content
 Generally speaking every next notebook is built on the top of the previous one. For example notebook `03_DoubleDQL.ipynb` uses both Double DQL and fixed QTargets originally implemented in `02_DQL_with_fixed_QTargets.ipynb`
-- `01_Vanilla_DQL.ipynb` - basic implementation of Deep QLearning. Uses `lib/basic_agent.py`
-- `02_DQL_with_fixed_QTargets.ipynb` - fixed QTargets added. Uses `lib/fixed_qtarget_agent.py`
-- `03_DoubleDQL.ipynb` - Double DQL (selects optimal next action using two sets of weights). Uses `lib/double_dql_agent.py`
+- `01_Vanilla_DQL.ipynb` - basic implementation of Deep QLearning. Uses `rainbow/basic_agent.py`
+- `02_DQL_with_fixed_QTargets.ipynb` - fixed QTargets added. Uses `rainbow/fixed_qtarget_agent.py`
+- `03_DoubleDQL.ipynb` - Double DQL (selects optimal next action using two sets of weights). Uses `rainbow/double_dql_agent.py`
 - `04_PER.ipynb` - Prioritized Experience Replay. `NOT IMPLEMENTED`
 - `05_Dueling_QLearning.ipynb` - Dueling Q Learning algorithm. `NOT IMPLEMENTED`
