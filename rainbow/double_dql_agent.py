@@ -4,7 +4,7 @@ from collections import namedtuple, deque
 
 from rainbow.replay_buffer import ReplayBuffer
 
-from rainbow.dense_network import QNetwork
+from rainbow.networks import QNetwork
 
 import torch
 import torch.nn.functional as F
