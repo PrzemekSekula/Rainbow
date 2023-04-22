@@ -107,12 +107,12 @@ class Agent():
         next_states = torch.FloatTensor(next_states).to(device)
         dones = torch.FloatTensor(dones.reshape(-1, 1)).to(device)        
         
-        Q_targets_next = self.target_network(next_states).detach().max(dim=1, keepdim=True)[0]
-        Q_targets = rewards + (self.gamma * Q_targets_next * (1 - dones))
-        Q_expected = self.local_network(states).gather(1, actions)
+        Q_next = self.target_network(next_states).detach().max(dim=1, keepdim=True)[0]
+        Q_targets = rewards + (self.gamma * Q_next * (1 - dones))
+        Q_curr = self.local_network(states).gather(1, actions)
 
         # Compute loss
-        loss = F.mse_loss(Q_expected, Q_targets)
+        loss = F.mse_loss(Q_curr, Q_targets)
         # Minimize the loss
         self.optimizer.zero_grad()
         loss.backward()
