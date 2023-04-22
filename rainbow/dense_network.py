@@ -16,9 +16,6 @@ class QNetwork(nn.Module):
         """
         super(QNetwork, self).__init__()
         
-        # TODO: Create a network with 2 hidden layers (fc1 and fc2 
-        # nodes) and output layer with action_size nodes.
-        # use nn.Linear to create the layers (no activation function)
         self.fc1 = nn.Linear(state_size, fc1_units)
         self.fc2 = nn.Linear(fc1_units, fc2_units)
         self.fc3 = nn.Linear(fc2_units, action_size)
@@ -30,8 +27,7 @@ class QNetwork(nn.Module):
         Returns:
             torch.Tensor: The action values
         """
-        
-        # TODO: Implement the forward pass. Use ReLU activation function
+
         x = F.relu(self.fc1(state))
         x = F.relu(self.fc2(x))
         return self.fc3(x)
