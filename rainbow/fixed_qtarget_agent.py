@@ -47,6 +47,7 @@ class Agent():
         # TODO: Create a network with 2 hidden layers (fc1 and fc2 nodes)
         self.local_network = QNetwork(state_size, action_size, fc1, fc2).to(device)
         self.target_network = QNetwork(state_size, action_size, fc1, fc2).to(device)
+        self.target_hard_update()       
         
         # TODO: Create the optimizer (Adam with learning rate lr)
         self.optimizer = optim.Adam(self.local_network.parameters(), lr=lr)
@@ -121,10 +122,8 @@ class Agent():
     def target_hard_update(self):
         """ Assigns Local network weights to target network weights
         """
-        target_parameters = list(self.target_network.parameters())
-        local_parameters = list(self.local_network.parameters())
-        for i in range(len(local_parameters)):
-            target_parameters[i].data[:] = local_parameters[i].data[:]
+        self.target_network.load_state_dict(self.local_network.state_dict())
+        self.target_network.eval()        
 
         
     def save(self, path = 'checkpoint.pth'):
