@@ -12,7 +12,7 @@ Generally speaking every next notebook is built on the top of the previous one. 
 - `02_DQL_with_fixed_QTargets.ipynb` - fixed QTargets added. Uses `rainbow/fixed_qtarget_agent.py`
 - `03_DoubleDQL.ipynb` - Double DQL (selects optimal next action using two sets of weights). Uses `rainbow/double_dql_agent.py`
 - `04_PER.ipynb` - Prioritized Experience Replay. Uses `PrioritizedReplayBuffer` class and  `rainbow/per_agent.py`.
-- `05_Dueling_QLearning.ipynb` - Dueling Q Learning algorithm. `NOT IMPLEMENTED`
+- `05_Dueling_QLearning.ipynb` - Dueling Q Learning algorithm. Uses `DuelingQNetwork` class and  `rainbow/dueling_agent.py`.
 
 ### TO DO
 Everything works fine with `mse_loss`, but does not want to work with `smooth_l1_loss`. I do not really understand why, I need to dig into it further.
